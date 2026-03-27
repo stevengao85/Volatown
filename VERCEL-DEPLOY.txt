@@ -1,0 +1,11 @@
+Vercel deployment notes
+
+1. Upload or import this folder as the project root in Vercel.
+2. Framework Preset: Other
+3. Build Command: leave empty
+4. Output Directory: .
+
+You can also deploy with the Vercel CLI from this folder:
+  vercel
+or for production:
+  vercel --prod

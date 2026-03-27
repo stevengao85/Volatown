@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1600" y2="960" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#091428"/>
+      <stop offset="0.45" stop-color="#10294D"/>
+      <stop offset="1" stop-color="#1B1533"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="960" x2="1600" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111F"/>
+      <stop offset="1" stop-color="#14355A"/>
+    </linearGradient>
+    <linearGradient id="land" x1="266" y1="137" x2="1288" y2="784" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#30466C"/>
+      <stop offset="0.5" stop-color="#243B5B"/>
+      <stop offset="1" stop-color="#1C2D4A"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="320" y1="260" x2="1260" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9BD7FF" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#A784FF" stop-opacity=".2"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFEFC1"/>
+      <stop offset="1" stop-color="#C7A363"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(470 675) rotate(90) scale(200 280)">
+      <stop stop-color="#5EE8FF" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#5EE8FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowPurple" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(830 245) rotate(90) scale(180 200)">
+      <stop stop-color="#D2A6FF" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#D2A6FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRed" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1180 335) rotate(90) scale(160 190)">
+      <stop stop-color="#FF8DAA" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#FF8DAA" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000814" flood-opacity="0.45"/>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.8 0"/>
+    </filter>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" stroke="#E3F4FF" stroke-opacity=".05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="960" fill="url(#sky)"/>
+  <rect y="560" width="1600" height="400" fill="url(#sea)"/>
+  <rect width="1600" height="960" fill="url(#grid)"/>
+  <ellipse cx="1340" cy="136" rx="170" ry="92" fill="#D8E7FF" fill-opacity=".04"/>
+  <circle cx="1340" cy="136" r="48" fill="#FFF4D6" fill-opacity=".26"/>
+  <circle cx="1340" cy="136" r="80" fill="#FFF4D6" fill-opacity=".08"/>
+
+  <path d="M291 794c-53-68-92-161-79-259 10-83 59-162 124-217 56-48 117-64 166-121 43-51 73-119 135-153 88-49 194-52 288-27 72 19 130 57 191 97 69 45 148 83 200 147 53 66 63 150 57 232-4 59-16 125-58 168-44 44-108 63-156 102-66 53-111 130-190 162-92 37-201 21-300 12-96-9-214 13-286-51-31-28-65-56-92-92Z" fill="url(#land)" stroke="url(#rim)" stroke-width="3" filter="url(#shadow)"/>
+
+  <path d="M 325 790 C 370 740 450 724 518 696 C 594 666 664 608 710 556 C 769 490 803 381 884 332 C 953 291 1040 294 1109 326 C 1188 363 1258 431 1281 506" stroke="#8DD9FF" stroke-opacity=".35" stroke-width="18" stroke-linecap="round"/>
+  <path d="M 325 790 C 370 740 450 724 518 696 C 594 666 664 608 710 556 C 769 490 803 381 884 332 C 953 291 1040 294 1109 326 C 1188 363 1258 431 1281 506" stroke="#F7FDFF" stroke-opacity=".66" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 16"/>
+
+  <ellipse cx="470" cy="675" rx="220" ry="150" fill="url(#glowBlue)"/>
+  <ellipse cx="830" cy="245" rx="180" ry="120" fill="url(#glowPurple)"/>
+  <ellipse cx="1180" cy="335" rx="160" ry="110" fill="url(#glowRed)"/>
+
+  <!-- waterways -->
+  <path d="M544 766c50-40 96-66 129-132 25-49 35-101 57-139 30-50 77-63 117-88" stroke="#66CFFF" stroke-opacity=".22" stroke-width="28" stroke-linecap="round"/>
+  <path d="M853 423c24-31 43-81 94-104 42-18 96-10 140-26" stroke="#8ADFFF" stroke-opacity=".16" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- districts -->
+  <g opacity=".96">
+    <path d="M364 734c52-58 125-80 189-43 54 31 56 101 6 147-60 55-162 72-228 27-41-28-31-87 33-131Z" fill="#1C3452" stroke="#8CD5FF" stroke-opacity=".42" stroke-width="2"/>
+    <path d="M544 642c31-49 100-73 157-50 62 25 80 92 39 145-46 59-131 102-198 75-55-22-52-101 2-170Z" fill="#213A5C" stroke="#8CD5FF" stroke-opacity=".38" stroke-width="2"/>
+    <path d="M731 520c27-55 80-97 146-103 69-6 125 34 127 97 3 85-59 164-141 182-61 14-123-9-144-67-11-30-9-67 12-109Z" fill="#243D61" stroke="#AAD5FF" stroke-opacity=".34" stroke-width="2"/>
+    <path d="M770 290c41-59 122-98 194-85 84 15 134 92 110 169-28 88-125 156-219 140-90-15-138-98-85-224Z" fill="#27385B" stroke="#CAB7FF" stroke-opacity=".35" stroke-width="2"/>
+    <path d="M1124 271c67-31 150-14 205 34 52 46 61 116 22 170-45 62-133 90-209 67-71-22-111-95-70-177 11-23 27-46 52-60Z" fill="#2E3559" stroke="#FFB4C4" stroke-opacity=".36" stroke-width="2"/>
+    <path d="M947 556c43-30 108-38 162-15 71 30 108 110 75 181-39 83-144 134-236 115-65-14-122-73-110-142 12-67 50-112 109-139Z" fill="#26385D" stroke="#96E1FF" stroke-opacity=".3" stroke-width="2"/>
+  </g>
+
+  <!-- landmarks -->
+  <g fill="url(#gold)" stroke="#0D1524" stroke-opacity=".4" stroke-width="1.4">
+    <!-- direction gate -->
+    <path d="M1013 654h44v59h-12v-28h-20v28h-12z"/>
+    <path d="M1020 654v-42h8l7 16 7-16h8v42h-10v-20l-5 11h-1l-5-11v20z"/>
+    <path d="M1066 609l23 17-23 17v-9h-22v-16h22z"/>
+
+    <!-- break-even bazaar -->
+    <path d="M490 692h84l-18 42h-48z"/>
+    <path d="M500 690l32-28 32 28"/>
+    <path d="M487 736h86v12h-86z"/>
+
+    <!-- archive -->
+    <rect x="624" y="550" width="64" height="80" rx="6"/>
+    <path d="M641 566h29M641 585h29M641 604h29" stroke="#0D1524" stroke-width="2"/>
+
+    <!-- theta tower lower -->
+    <rect x="828" y="316" width="26" height="120" rx="10"/>
+    <rect x="817" y="294" width="48" height="30" rx="8"/>
+    <path d="M806 294l35-28 35 28"/>
+
+    <!-- theta tower upper -->
+    <rect x="885" y="191" width="30" height="144" rx="10"/>
+    <rect x="872" y="164" width="56" height="32" rx="8"/>
+    <path d="M862 164l39-31 39 31"/>
+
+    <!-- delta terrace -->
+    <path d="M1046 557l32-60 31 60z"/>
+    <rect x="1056" y="557" width="41" height="12" rx="5"/>
+
+    <!-- vega square -->
+    <circle cx="423" cy="602" r="23"/>
+    <circle cx="423" cy="602" r="10" fill="#0F2643"/>
+    <path d="M391 603h64M423 571v64" stroke="#0D1524" stroke-width="2.2"/>
+
+    <!-- gamma hall -->
+    <rect x="1128" y="348" width="94" height="78" rx="8"/>
+    <path d="M1120 348l56-34 56 34"/>
+    <path d="M1142 370h18v38h-18zM1193 370h18v38h-18z" fill="#0F2643"/>
+
+    <!-- earnings arena -->
+    <ellipse cx="1258" cy="506" rx="44" ry="30"/>
+    <ellipse cx="1258" cy="506" rx="22" ry="14" fill="#0F2643"/>
+  </g>
+
+  <!-- district labels -->
+  <g font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#F7FBFF">
+    <text x="804" y="92" font-size="54" font-weight="700">波动城 · 总览地图</text>
+    <text x="804" y="128" font-size="22" fill="#D2E6FF" opacity=".82">Volatility City World Map</text>
+
+    <text x="1015" y="746" font-size="34" font-weight="700">方向街</text>
+    <text x="1008" y="782" font-size="18" fill="#CCE8FF" opacity=".82">Delta Avenue</text>
+
+    <text x="528" y="794" font-size="30" font-weight="700">波动集市</text>
+    <text x="525" y="826" font-size="18" fill="#CCE8FF" opacity=".82">Break-even Bazaar</text>
+
+    <text x="662" y="671" font-size="28" font-weight="700">价值档案馆</text>
+    <text x="663" y="702" font-size="17" fill="#CCE8FF" opacity=".82">Value Archive</text>
+
+    <text x="819" y="565" font-size="28" font-weight="700">时间塔</text>
+    <text x="819" y="596" font-size="17" fill="#E4D8FF" opacity=".82">Lower &amp; Upper Tower</text>
+
+    <text x="1180" y="594" font-size="28" font-weight="700">风控大厅</text>
+    <text x="1180" y="626" font-size="17" fill="#FFD7E2" opacity=".82">Gamma Hall</text>
+  </g>
+
+  <!-- chapter beacons -->
+  <g>
+    <circle cx="1038" cy="632" r="32" fill="#6AD6FF" fill-opacity=".18" filter="url(#softGlow)"/>
+    <circle cx="1038" cy="632" r="22" fill="#101C2F" stroke="#6AD6FF" stroke-width="3"/>
+    <circle cx="1038" cy="632" r="16" fill="#6AD6FF" fill-opacity=".86"/>
+    <text x="1038" y="639" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#08111F">1</text>
+    <circle cx="520" cy="708" r="32" fill="#49F2D0" fill-opacity=".18" filter="url(#softGlow)"/>
+    <circle cx="520" cy="708" r="22" fill="#101C2F" stroke="#49F2D0" stroke-width="3"/>
+    <circle cx="520" cy="708" r="16" fill="#49F2D0" fill-opacity=".86"/>
+    <text x="520" y="715" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#08111F">2</text>
+    <circle cx="655" cy="589" r="32" fill="#B8D4FF" fill-opacity=".18" filter="url(#softGlow)"/>
+    <circle cx="655" cy="589" r="22" fill="#101C2F" stroke="#B8D4FF" stroke-width="3"/>
+    <circle cx="655" cy="589" r="16" fill="#B8D4FF" fill-opacity=".86"/>
+    <text x="655" y="596" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#08111F">3</text>
+    <circle cx="840" cy="386" r="32" fill="#C6A5FF" fill-opacity=".18" filter="url(#softGlow)"/>
+    <circle cx="840" cy="386" r="22" fill="#101C2F" stroke="#C6A5FF" stroke-width="3"/>
+    <circle cx="840" cy="386" r="16" fill="#C6A5FF" fill-opacity=".86"/>
+    <text x="840" y="393" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#08111F">4</text>
+    <circle cx="901" cy="245" r="32" fill="#E8C2FF" fill-opacity=".18" filter="url(#softGlow)"/>
+    <circle cx="901" cy="245" r="22" fill="#101C2F" stroke="#E8C2FF" stroke-width="3"/>
+    <circle cx="901" cy="245" r="16" fill="#E8C2FF" fill-opacity=".86"/>
+    <text x="901" y="252" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#08111F">5</text>
+    <circle cx="1078" cy="535" r="32" fill="#72D9FF" fill-opacity=".18" filter="url(#softGlow)"/>
+    <circle cx="1078" cy="535" r="22" fill="#101C2F" stroke="#72D9FF" stroke-width="3"/>
+    <circle cx="1078" cy="535" r="16" fill="#72D9FF" fill-opacity=".86"/>
+    <text x="1078" y="542" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#08111F">6</text>
+    <circle cx="424" cy="602" r="32" fill="#49F2D0" fill-opacity=".18" filter="url(#softGlow)"/>
+    <circle cx="424" cy="602" r="22" fill="#101C2F" stroke="#49F2D0" stroke-width="3"/>
+    <circle cx="424" cy="602" r="16" fill="#49F2D0" fill-opacity=".86"/>
+    <text x="424" y="609" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#08111F">7</text>
+    <circle cx="1176" cy="392" r="32" fill="#FF91AA" fill-opacity=".18" filter="url(#softGlow)"/>
+    <circle cx="1176" cy="392" r="22" fill="#101C2F" stroke="#FF91AA" stroke-width="3"/>
+    <circle cx="1176" cy="392" r="16" fill="#FF91AA" fill-opacity=".86"/>
+    <text x="1176" y="399" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#08111F">8</text>
+    <circle cx="1258" cy="506" r="32" fill="#FFB15C" fill-opacity=".18" filter="url(#softGlow)"/>
+    <circle cx="1258" cy="506" r="22" fill="#101C2F" stroke="#FFB15C" stroke-width="3"/>
+    <circle cx="1258" cy="506" r="16" fill="#FFB15C" fill-opacity=".86"/>
+    <text x="1258" y="513" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#08111F">9</text>
+  </g>
+
+  <!-- decorative compass -->
+  <g transform="translate(1420 788)">
+    <circle r="74" fill="#0A1528" fill-opacity=".7" stroke="#A8DCFF" stroke-opacity=".36" stroke-width="2"/>
+    <circle r="55" fill="none" stroke="#A8DCFF" stroke-opacity=".18" stroke-width="1.4"/>
+    <path d="M0-48l12 34-12 14-12-14 12-34ZM48 0l-34 12-14-12 14-12 34 12ZM0 48l-12-34 12-14 12 14-12 34ZM-48 0l34-12 14 12-14 12-34-12Z" fill="#FFE6A4" fill-opacity=".9"/>
+    <text y="-62" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#EAF7FF">N</text>
+    <text x="62" y="5" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#EAF7FF">E</text>
+    <text y="77" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#EAF7FF">S</text>
+    <text x="-62" y="5" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#EAF7FF">W</text>
+  </g>
+
+  <g font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" fill="#DCEEFF" opacity=".88">
+    <text x="136" y="890" font-size="18">主线顺序：1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9</text>
+    <text x="136" y="918" font-size="16" opacity=".75">完成一关学习与答题后，解锁下一关。地图按钮与存档进度联动。</text>
+  </g>
+</svg>

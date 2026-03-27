@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>波动城：希腊女神与期权学徒</title>
+  <meta name="description" content="手绘奇幻风格的期权学习冒险游戏，可直接部署到 Netlify。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+
+    <section id="title-screen" class="screen active title-screen fantasy-bg" style="--screen-bg:url('assets/img/fantasy/bg-title.jpg')">
+      <div class="screen-overlay"></div>
+      <div class="title-shell">
+        <div class="title-hero" aria-label="波动城主菜单">
+          <img class="title-hero-image" src="assets/img/fantasy/bg-title-menu.png" alt="波动城主菜单背景" />
+          <div class="sr-only">波动城：希腊女神与期权学徒</div>
+          <div class="title-hit-grid">
+            <button class="title-hit-btn enter" data-action="start" aria-label="进入波动城"></button>
+            <button class="title-hit-btn map" data-action="chapters" aria-label="查看地图"></button>
+            <button class="title-hit-btn archive" data-action="archive" aria-label="人物图鉴"></button>
+            <button class="title-hit-btn settings" data-action="settings" aria-label="系统设置"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="chapter-screen" class="screen fantasy-bg" style="--screen-bg:url('assets/img/fantasy/bg-map.jpg')">
+      <div class="screen-overlay map-overlay-screen"></div>
+      <div class="topbar antique-topbar chapter-topbar chapter-topbar-clean">
+        <div id="chapter-summary" class="summary-pill"></div>
+        <button class="ghost-btn chapter-home-btn" data-nav="title">回主菜单</button>
+      </div>
+      <div id="chapter-grid" class="chapter-map-wrap"></div>
+    </section>
+
+    <section id="archive-screen" class="screen archive-screen">
+      <img class="screen-backdrop" src="assets/img/fantasy/bg-map.jpg" alt="" aria-hidden="true" />
+      <div class="screen-overlay archive-overlay-screen"></div>
+      <div class="archive-top-actions">
+        <button class="ghost-btn archive-home-btn" data-nav="title">回主菜单</button>
+      </div>
+      <div class="section-head parchment narrow-head">
+        <div>
+          <p class="eyebrow">Character Archive</p>
+          <h2>波动城人物图鉴</h2>
+        </div>
+      </div>
+      <div id="archive-grid" class="archive-grid fantasy-archive"></div>
+    </section>
+
+    <section id="game-screen" class="screen game-screen">
+      <div class="hud ornate-hud">
+        <div class="hud-left">
+          <div id="hud-chapter" class="hud-chip">第一关</div>
+          <div id="hud-phase" class="hud-chip alt">剧情</div>
+        </div>
+        <div class="hud-right">
+          <button class="hud-btn" id="btn-log">记录</button>
+          <button class="hud-btn" id="btn-auto">自动</button>
+          <button class="hud-btn" id="btn-skip">快进</button>
+          <button class="hud-btn" id="btn-system">系统</button>
+        </div>
+      </div>
+
+      <div id="quiz-topbar" class="quiz-topbar hidden" aria-hidden="true">
+        <button id="btn-quiz-scene" class="quiz-top-pill" type="button">第一关 方向街</button>
+        <button id="btn-quiz-home" class="quiz-top-pill" type="button">回主菜单</button>
+      </div>
+
+      <div class="scene-frame chatroom-frame" id="scene-frame">
+        <div class="scene-canvas">
+          <div id="scene-background" class="scene-background"></div>
+          <div id="scene-identity-layer" class="scene-identity-layer hidden" aria-hidden="true"></div>
+          <div id="scene-loading" class="scene-loading hidden"><div class="scene-loading-card">场景载入中…</div></div>
+          <div class="screen-overlay scene-shade"></div>
+        </div>
+
+        <div id="actor-layer" class="actor-layer hidden" aria-hidden="true">
+          <img id="actor-left" class="actor-sprite actor-left" alt="" />
+          <img id="actor-center" class="actor-sprite actor-center" alt="" />
+          <img id="actor-right" class="actor-sprite actor-right" alt="" />
+        </div>
+
+        <div class="scene-stage hidden-stage" aria-hidden="true">
+          <div class="portrait side left"><img id="portrait-left" alt="" /></div>
+          <div class="portrait center"><img id="portrait-center" alt="" /></div>
+          <div class="portrait side right"><img id="portrait-right" alt="" /></div>
+        </div>
+
+        <aside id="dialogue-panel" class="dialogue-panel chat-sidebar">
+          <div class="chat-sidebar-head">
+            <div>
+              <div class="chat-room-kicker">Message Room</div>
+              <div class="chat-room-title">波动城对话</div>
+            </div>
+            <div id="line-indicator" class="line-indicator">1 / 10</div>
+          </div>
+          <div id="chat-thread" class="chat-thread"></div>
+          <div class="chat-sidebar-foot">
+            <div class="hint">点击继续或按空格推进</div>
+            <button id="btn-next" class="primary small-btn">继续</button>
+          </div>
+        </aside>
+
+        <div id="quiz-panel" class="quiz-panel parchment glass hidden">
+          <div id="quiz-panel-scroll" class="quiz-panel-scroll">
+            <div class="quiz-head">
+              <div>
+                <p class="eyebrow">Trial Question</p>
+                <h3 id="quiz-title">第一题</h3>
+              </div>
+              <span id="quiz-difficulty" class="difficulty">难度 低</span>
+            </div>
+            <p id="quiz-question" class="quiz-question"></p>
+            <div id="quiz-options" class="quiz-options"></div>
+            <div id="quiz-feedback" class="quiz-feedback"></div>
+          </div>
+          <div class="quiz-footer">
+            <div id="quiz-progress" class="quiz-progress"></div>
+            <button id="btn-quiz-next" class="primary small-btn hidden">下一题</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="result-screen" class="screen fantasy-bg" style="--screen-bg:url('assets/img/fantasy/bg-title-menu.png')">
+      <div class="screen-overlay dark"></div>
+      <div class="result-wrap parchment glass">
+        <p class="eyebrow">Trial Result</p>
+        <h2 id="result-title">挑战成功</h2>
+        <p id="result-copy" class="result-copy"></p>
+        <div id="result-stats" class="result-stats"></div>
+        <div class="result-actions">
+          <button class="menu-btn primary" id="btn-result-next">下一关</button>
+          <button class="menu-btn" id="btn-result-retry">重玩本关</button>
+          <button class="menu-btn" data-nav="chapters">返回地图</button>
+          <button class="menu-btn" data-nav="title">回到主菜单</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div id="system-modal" class="modal parchment glass hidden">
+        <div class="modal-head">
+          <h3>系统菜单</h3>
+          <button class="icon-btn" data-close-modal>✕</button>
+        </div>
+        <div class="modal-actions">
+          <button class="menu-btn" id="btn-resume">继续剧情</button>
+          <button class="menu-btn" id="btn-save">保存进度</button>
+          <button class="menu-btn" id="btn-load">读取存档</button>
+          <button class="menu-btn" id="btn-restart-chapter">重开本关</button>
+          <button class="menu-btn" data-nav="chapters">返回地图</button>
+          <button class="menu-btn" data-nav="title">主菜单</button>
+        </div>
+      </div>
+
+      <div id="save-modal" class="modal parchment glass hidden">
+        <div class="modal-head">
+          <h3>手动存档</h3>
+          <button class="icon-btn" data-close-modal>✕</button>
+        </div>
+        <div id="save-slots" class="slot-list"></div>
+      </div>
+
+      <div id="load-modal" class="modal parchment glass hidden">
+        <div class="modal-head">
+          <h3>读取存档</h3>
+          <button class="icon-btn" data-close-modal>✕</button>
+        </div>
+        <div id="load-slots" class="slot-list"></div>
+      </div>
+
+      <div id="log-modal" class="modal parchment glass hidden">
+        <div class="modal-head">
+          <h3>台词记录</h3>
+          <button class="icon-btn" data-close-modal>✕</button>
+        </div>
+        <div id="log-list" class="log-list"></div>
+      </div>
+
+      <div id="settings-modal" class="modal parchment glass hidden">
+        <div class="modal-head">
+          <h3>系统设置</h3>
+          <button class="icon-btn" data-close-modal>✕</button>
+        </div>
+        <div class="settings-grid">
+          <label class="setting-item">
+            <span>文字速度</span>
+            <input id="typing-speed" type="range" min="6" max="40" step="1" />
+          </label>
+          <label class="setting-item">
+            <span>自动推进延迟</span>
+            <input id="auto-delay" type="range" min="900" max="3000" step="100" />
+          </label>
+          <label class="setting-item toggle-row">
+            <span>减少动画</span>
+            <input id="reduce-motion" type="checkbox" />
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button class="menu-btn primary" id="btn-settings-save">保存设置</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="assets/js/gameData.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
